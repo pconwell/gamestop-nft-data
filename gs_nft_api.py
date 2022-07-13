@@ -24,6 +24,6 @@ forsale = sum([int(i['forSale']) for i in Collections_individual_data.values()])
 # print(f"Total eth: {wei * 10 ** -18} Total Items: {items} For Sale: {forsale}")
 
 #write to csv file
-with open('./gamestop_nft_data.csv', mode='a') as f:
+with open('/root/gamestop-nft-data/gamestop_nft_data.csv', mode='a') as f:
     w = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     w.writerow([datetime.now(), wei, items, forsale])
