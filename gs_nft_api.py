@@ -13,8 +13,13 @@ Collections_overview_data = requests.get(f"https://api.nft.gamestop.com/nft-svc-
 # go through each individual collection from Collections_data
 Collections_individual_data = {}
 for index, collection in enumerate(Collections_overview_data['data']):
-    Collections_individual_data[collection['collectionId']] = requests.get(f"https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionStats?collectionId={collection['collectionId']}").json()
-    print(f"gathering data on collection {index+1} of {Collections_count} - {collection['slug']} {Collections_individual_data[collection['collectionId']]}")
+    try:
+        Collections_individual_data[collection['collectionId']] = requests.get(f"https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionStats?collectionId={collection['collectionId']}").json()
+        print(f"gathering data on collection {index+1} of {Collections_count} - {collection['slug']} {Collections_individual_data[collection['collectionId']]}")
+        sleep(.25)
+    except:
+        print(f"skipping error on collection collection['collectionId'] ******************************************************************************************")
+        pass
 
 # sum up the values we want from the individual collections
 wei = sum([int(i['totalVolume']) for i in Collections_individual_data.values()])
