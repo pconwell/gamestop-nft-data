@@ -2,6 +2,7 @@
 import requests
 import csv
 from datetime import datetime
+from time import sleep
 
 
 # Get the number of collections (we could just use a really big limit instead, but this helps future proofing)
