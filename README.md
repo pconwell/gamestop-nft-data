@@ -17,3 +17,13 @@ If you want to run the python script - I'll assume you are already somewhat fami
    2. Around 2022-07-14 21:00, I was able to fix the script to pull data from the stats page (if the missing data is from one of the top 50 collections). Pulling from the stats page shows metaboy with +1058.90 eth. Since metaboy was the *only* collection missings from the API, this would suggest that metaboy had 508.22 eth in sales during that time period, but...
    3. According to metaboy's loopchain wallet, he earned 0.54569 eth during that timeframe. Even if we optimistically include transactions one hour before and after, it totals 0.738706 eth. Even if these transactions only account a certain percentage of sales (say, royalties), it's not even remotely close to the missing 508.22 eth. As in the metaboy loopring wallet optimistically accounts for 0.15% of the "missing" eth.
    4. I'm not sure what else to do, so I'm just leaving the CSV data as is. Just know that between 2022-07-14 18:00 -- 2022-07-14 21:00, the numbers are screwy.
+
+## Known API endpoints
+> please use these responsibly. We are almost certainly not supposed to use them publicly and abues may cause gme to lock these down. If you just want data, use the CSV file above. It is updated every hour.
+
+Collections (all, including empty): `https://api.nft.gamestop.com/nft-svc-marketplace/getCollections`
+Collections (at least one NFT): `https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionsPaginated?&limit=0`
+Collections (stats, top 50, all time?): `https://api.nft.gamestop.com/nft-svc-marketplace/getStats?timePeriod=0&type=collection`
+Collections (stats, top 50, 1 day): `https://api.nft.gamestop.com/nft-svc-marketplace/getStats?timePeriod=1&type=collection`
+Individual Collection: `https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionStats?collectionId=c723bd10-c407-4c57-8123-954f250a1aa0`
+Creators (top 50, all time?): `https://api.nft.gamestop.com/nft-svc-marketplace/getStats?timePeriod=0&type=creator`
