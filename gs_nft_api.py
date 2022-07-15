@@ -4,29 +4,26 @@ import logging
 from datetime import datetime
 from time import sleep
 
-print("starting")
+def rand_sleep():
+    # randomly sleep between .25 and 3.0 seconds
+    sleep(randint(25, 300)/100)
+
 
 logging.basicConfig(filename='/root/gamestop-nft-data/gs_nft_api.log', filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO) 
 
 logging.info(f"\n\n***** starting gs_nft_api.py *****\n")
-print("logging")
 
 # Get the number of collections (we could just use a really big limit instead, but this helps future proofing)
 Collections_count = requests.get("https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionsPaginated?&limit=0").json()['totalNum']
-sleep(1)
-print("one")
-
+rand_sleep()
 
 # Get all collections overview data
 Collections_overview_data = requests.get(f"https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionsPaginated?&limit={Collections_count}").json()
-sleep(1)
-print("two")
+rand_sleep()
 
 # Get backup data from stats page (only shows top 50 collections)
 Collections_backup_data = requests.get(f"https://api.nft.gamestop.com/nft-svc-marketplace/getStats?timePeriod=0&type=collection").json()
-sleep(1)
-print("three")
-
+rand_sleep()
 
 # go through each individual collection from Collections_data
 Collections_individual_data = {}
@@ -35,8 +32,7 @@ for index, collection in enumerate(Collections_overview_data['data']):
         # For each collectionID, try to get the individual collection data
         Collections_individual_data[collection['collectionId']] = requests.get(f"https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionStats?collectionId={collection['collectionId']}").json()
         logging.info(f"gathering data on collection {index+1} of {Collections_count} - {collection['slug']} {Collections_individual_data[collection['collectionId']]}")
-        print(f"gathering data on collection {index+1} of {Collections_count} - {collection['slug']} {Collections_individual_data[collection['collectionId']]}")
-        sleep(1)
+        rand_sleep()
     except Exception as e:
         # If there's an error...
         logging.error(f"{collection['collectionId']} ({collection['slug']}) {e}")
@@ -50,7 +46,7 @@ for index, collection in enumerate(Collections_overview_data['data']):
                 break
 
         if fixed:    
-            logging.error(f"{collection['collectionId']} ({collection['slug']}) Data successfully extracted from backup data")
+            logging.error(f"{collection['collectionId']} ({collection['slug']}) Success! {Collections_individual_data[collection['collectionId']]}")
         else:
             logging.error(f"{collection['collectionId']} ({collection['slug']}) Unable to find data in backup data")
 
