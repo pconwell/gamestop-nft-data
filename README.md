@@ -21,9 +21,9 @@ If you want to run the python script - I'll assume you are already somewhat fami
 ## Known API endpoints
 > please use these responsibly. We are almost certainly not supposed to use them publicly and abues may cause gme to lock these down. If you just want data, use the CSV file above. It is updated every hour.
 
-Collections (all, including empty): `https://api.nft.gamestop.com/nft-svc-marketplace/getCollections`
-Collections (at least one NFT): `https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionsPaginated?&limit=0`
-Collections (stats, top 50, all time?): `https://api.nft.gamestop.com/nft-svc-marketplace/getStats?timePeriod=0&type=collection`
-Collections (stats, top 50, 1 day): `https://api.nft.gamestop.com/nft-svc-marketplace/getStats?timePeriod=1&type=collection`
-Individual Collection: `https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionStats?collectionId=c723bd10-c407-4c57-8123-954f250a1aa0`
-Creators (top 50, all time?): `https://api.nft.gamestop.com/nft-svc-marketplace/getStats?timePeriod=0&type=creator`
+Collections (all, including empty): `https://api.nft.gamestop.com/nft-svc-marketplace/getCollections`  
+Collections (at least one NFT): `https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionsPaginated?&limit=0`  
+Collections (stats, top 50, all time?): `https://api.nft.gamestop.com/nft-svc-marketplace/getStats?timePeriod=0&type=collection`  
+Collections (stats, top 50, 1 day): `https://api.nft.gamestop.com/nft-svc-marketplace/getStats?timePeriod=1&type=collection`  
+Individual Collection: `https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionStats?collectionId=c723bd10-c407-4c57-8123-954f250a1aa0`  
+Creators (top 50, all time?): `https://api.nft.gamestop.com/nft-svc-marketplace/getStats?timePeriod=0&type=creator`  
