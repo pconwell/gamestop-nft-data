@@ -3,6 +3,7 @@ import csv
 import logging
 from datetime import datetime
 from time import sleep
+from random import randint
 
 def rand_sleep():
     # randomly sleep between .25 and 3.0 seconds

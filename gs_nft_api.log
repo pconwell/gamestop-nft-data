@@ -1,4 +1,8 @@
-2022-07-15 14:50:01,601 - root - INFO - 
+2022-07-15 14:52:45,031 - root - INFO - 
 
 ***** starting gs_nft_api.py *****
 
+2022-07-15 14:52:50,255 - root - INFO - gathering data on collection 1 of 293 - skelevision-prints {'itemCount': 12, 'floorPrice': '0', 'totalVolume': '0', 'forSale': '0'}
+2022-07-15 14:52:52,341 - root - INFO - gathering data on collection 2 of 293 - tgwfsinteractive {'itemCount': 1, 'floorPrice': '0', 'totalVolume': '0', 'forSale': '0'}
+2022-07-15 14:52:53,126 - root - INFO - gathering data on collection 3 of 293 - HolidayBoys {'itemCount': 6, 'floorPrice': '82000000000000000', 'totalVolume': '6232680000000000000', 'forSale': '38'}
+2022-07-15 14:52:54,578 - root - INFO - gathering data on collection 4 of 293 - FVNFT {'itemCount': 1, 'floorPrice': '10000000000000000', 'totalVolume': '780000000000000000', 'forSale': '425'}
