@@ -5,7 +5,7 @@ from datetime import datetime
 from time import sleep
 
 
-logging.basicConfig(filename='/root/gamestop-nft-data/gs_nft_api.log', filemode='a', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO) 
+logging.basicConfig(filename='/root/gamestop-nft-data/gs_nft_api.log', filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO) 
 
 logging.info(f"\n\n***** starting gs_nft_api.py *****\n")
 
