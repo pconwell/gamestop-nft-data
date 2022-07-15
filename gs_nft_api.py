@@ -4,19 +4,28 @@ import logging
 from datetime import datetime
 from time import sleep
 
+print("starting")
 
 logging.basicConfig(filename='/root/gamestop-nft-data/gs_nft_api.log', filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO) 
 
 logging.info(f"\n\n***** starting gs_nft_api.py *****\n")
+print("logging")
 
 # Get the number of collections (we could just use a really big limit instead, but this helps future proofing)
 Collections_count = requests.get("https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionsPaginated?&limit=0").json()['totalNum']
+sleep(1)
+print("one")
+
 
 # Get all collections overview data
 Collections_overview_data = requests.get(f"https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionsPaginated?&limit={Collections_count}").json()
+sleep(1)
+print("two")
 
 # Get backup data from stats page (only shows top 50 collections)
 Collections_backup_data = requests.get(f"https://api.nft.gamestop.com/nft-svc-marketplace/getStats?timePeriod=0&type=collection").json()
+sleep(1)
+print("three")
 
 
 # go through each individual collection from Collections_data
@@ -26,7 +35,8 @@ for index, collection in enumerate(Collections_overview_data['data']):
         # For each collectionID, try to get the individual collection data
         Collections_individual_data[collection['collectionId']] = requests.get(f"https://api.nft.gamestop.com/nft-svc-marketplace/getCollectionStats?collectionId={collection['collectionId']}").json()
         logging.info(f"gathering data on collection {index+1} of {Collections_count} - {collection['slug']} {Collections_individual_data[collection['collectionId']]}")
-        sleep(.25)
+        print(f"gathering data on collection {index+1} of {Collections_count} - {collection['slug']} {Collections_individual_data[collection['collectionId']]}")
+        sleep(1)
     except Exception as e:
         # If there's an error...
         logging.error(f"{collection['collectionId']} ({collection['slug']}) {e}")
