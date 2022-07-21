@@ -7,6 +7,7 @@ from datetime import datetime
 import get_collection_data
 
 
+now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 collection_data = get_collection_data.run_main()
 collection_slugs = {i['collectionId']: i['slug'] for i in requests.get("https://api.nft.gamestop.com/nft-svc-marketplace/getCollections").json()}
@@ -17,6 +18,11 @@ existing_columns = next(csv.reader(open("/root/gamestop-nft-data/individual_data
 added = set(incoming_collection_ids).difference(existing_collection_ids)
 
 collection_data['total'] = {"collectionId": "total", "totalVolume": sum([int(i['totalVolume']) for i in collection_data.values()])}
+
+
+with open('/root/gamestop-nft-data/gamestop_nft_data.csv', mode='a') as f:
+    w = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    w.writerow([ now, sum([int(i['totalVolume']) for i in collection_data.values()]) ])
 
 
 if exists("/root/gamestop-nft-data/individual_data.csv"):
