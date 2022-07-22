@@ -22,7 +22,7 @@ collection_data['total'] = {"collectionId": "total", "totalVolume": sum([int(i['
 
 with open('/root/gamestop-nft-data/gamestop_nft_data.csv', mode='a') as f:
     w = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    w.writerow([ now, collection_data['total']['totalVolume'] ])
+    w.writerow([ now, collection_data['total']['totalVolume'] ,"","" ])
 
 
 if exists("/root/gamestop-nft-data/individual_data.csv"):
