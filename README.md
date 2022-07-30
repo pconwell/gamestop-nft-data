@@ -1,3 +1,17 @@
+Important: I need to update the below documentation, but I just haven't gotten around to it yet. 
+
+Here's what you need to know:
+
+1. The `individual_collections.py` file runs once at the start of every hour.
+2. That file calls the `get_collection_data.py` to download the actual data.
+3. The data is written to two CSV files:
+   1. `individual_data.csv` which contains data on every individual collection (mostly to troubleshoot issues)
+   2. `gamestop_nft_data.csv` which contains the *totals* for that hour in wei (which is 10^(-18) ether)
+   
+The below documetation is out of date (but mostly still accurate)
+
+*****
+
 # gamestop-nft-data
 
 ## Overview
