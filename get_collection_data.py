@@ -51,7 +51,8 @@ async def collections_temp_file(id, session, collection_data):
 async def main():
 
     collection_data = {}
-    collection_ids = [i['collectionId'] for i in requests.get("https://api.nft.gamestop.com/nft-svc-marketplace/getCollections").json()]
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+    collection_ids = [i['collectionId'] for i in requests.get("https://api.nft.gamestop.com/nft-svc-marketplace/getCollections", headers=headers).json()]
 
     async with ClientSession() as session:
         await asyncio.gather(*[collections_temp_file(id, session, collection_data) for id in collection_ids])
