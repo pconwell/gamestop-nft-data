@@ -1,4 +1,7 @@
-Important: I need to update the below documentation, but I just haven't gotten around to it yet. 
+UPDATE 12/10/2022: Gamestop seems to have changed the API so that this script no longer works. I don't have the time or desire to update this script as (1) it is apparent the NFT marketplace has been a significant failure, and (2) because of the way the API works (or *worked*, I should say) it was really difficult to get accurate information anyway - the best we were doing was really just making educated guesses at numbers that were close to accurate.
+
+If someone wants to put time and energy into this project, I would recommend looking at tracking blockchain transactions instead of trying to scrape the crappy API. Unless something changes in the future, I have no plans to maintain this project moving forward.
+
 
 Here's what you need to know:
 
